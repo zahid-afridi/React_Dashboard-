@@ -35,6 +35,7 @@ const navigation = () => {
     {
       title: 'Deposit',
       icon: AttachMoneyIcon,
+      path:'/deposite'
    
      
     },
@@ -61,13 +62,14 @@ const navigation = () => {
       icon:LinkIcon,
     },
     {
-      title:'About',
+      title:'About Us',
       icon:InfoOutlinedIcon,
       path:'/about'
    },
     {
       title:'History',
-      icon: HistoryIcon
+      icon: HistoryIcon,
+      path:'/history'
     },
 
     
