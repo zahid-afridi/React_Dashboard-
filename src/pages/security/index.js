@@ -13,7 +13,8 @@ import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 import { styled } from '@mui/material/styles';
 import MuiTab from '@mui/material/Tab';
-import Typography from '@mui/material';
+import { Typography } from '@mui/material';
+
 
 
 // ** Icons Imports
