@@ -4,7 +4,7 @@ import React from 'react'
 export default function index() {
   return (
     <>
-      <Grid container spacing={5} pt={{xs:20}}>
+      <Grid container spacing={5} pt={{xs:'20px'}}>
         <Grid item lg={12} md={12} xs={12}>
           <Typography variant='h2' fontWeight='bold'>About Us</Typography>
         </Grid>

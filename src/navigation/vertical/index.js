@@ -62,7 +62,7 @@ const navigation = () => {
       icon:LinkIcon,
     },
     {
-      title:'About Us',
+      title:'About',
       icon:InfoOutlinedIcon,
       path:'/about'
    },
