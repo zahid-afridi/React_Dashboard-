@@ -42,6 +42,7 @@ const navigation = () => {
     {
       title: 'withdraw',
       icon: PaymentIcon,
+      path:'/withdraw'
  
    
     },

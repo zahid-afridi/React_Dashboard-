@@ -1,8 +1,9 @@
 import { Box, Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
-import Depositeform from 'src/views/Deposite/Depositeform';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Withdrawform from 'src/views/withdraw/Withdrawform';
 
 export default function Index() {
   const [submitform, setSubmitform] = useState(false);
@@ -52,8 +53,9 @@ export default function Index() {
         </Box>
       )}
 
-      {sumbtshow && <Depositeform onSubmit={handleFormSubmit} onCopyToClipboard={notify} />}
+      {sumbtshow && <Withdrawform onSubmit={handleFormSubmit} onCopyToClipboard={notify} />}
       <ToastContainer autoClose={3000} theme="dark" />
+      
     </>
   );
 }
