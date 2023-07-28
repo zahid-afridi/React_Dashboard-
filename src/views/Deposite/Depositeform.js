@@ -73,7 +73,8 @@ const Depositeform = ({ onSubmit, onCopyToClipboard }) => {
     }
 
     setFormErrors(errors);
-    return isValid;
+    
+return isValid;
   };
 
   const handleSubmit = (event) => {
