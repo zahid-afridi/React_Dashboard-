@@ -1,8 +1,10 @@
 import { Box, Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
 import Depositeform from 'src/views/Deposite/Depositeform';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Index = () => {
+export default function Index() {
   const [submitform, setSubmitform] = useState(false);
   const [sumbtshow, setSumbtshow] = useState(true);
 
@@ -12,9 +14,7 @@ const Index = () => {
     setSumbtshow(false);
   };
 
-  const CopytoClipboard = () => {
-    alert('Text has been copied to clipboard!');
-  };
+  const notify = () => toast("Text has been copied to clipboard!");
 
   const showForm = () => {
     setSubmitform(false);
@@ -48,9 +48,9 @@ const Index = () => {
           </Button>
         </Box>
       )}
-      {sumbtshow && <Depositeform onSubmit={handleFormSubmit} onCopyToClipboard={CopytoClipboard} />}
+
+      {sumbtshow && <Depositeform onSubmit={handleFormSubmit} onCopyToClipboard={notify} />}
+      <ToastContainer autoClose={3000} theme="dark" />
     </>
   );
-};
-
-export default Index;
+}
