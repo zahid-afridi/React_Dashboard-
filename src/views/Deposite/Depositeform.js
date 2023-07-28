@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { TextField, Button, Grid, Paper, Stack, Typography } from '@mui/material';
+import { TextField, Button, Grid, Paper, Stack, Typography, Alert } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-const Depositeform = () => {
+const Depositeform = ({ onSubmit, onCopyToClipboard }) => {
   const [formData, setFormData] = useState({
     username: '',
     enteramount: '',
-    image: null, // To store the uploaded image
+    image: null,
   });
 
   const [formErrors, setFormErrors] = useState({
     username: '',
     enteramount: '',
-    image: '', // To store the image validation error message
+    image: '',
   });
 
-  const [imagePreview, setImagePreview] = useState(null); // Added imagePreview state
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,13 +27,12 @@ const Depositeform = () => {
   };
 
   const handleImageChange = (event) => {
-    const file = event.target.files[0]; // Get the first selected file (single file upload)
+    const file = event.target.files[0];
     setFormData((prevFormData) => ({
       ...prevFormData,
       image: file,
     }));
 
-    // Display the image preview
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -49,7 +48,6 @@ const Depositeform = () => {
     let errors = {};
     let isValid = true;
 
-    // Username validation
     if (!formData.username) {
       errors.username = 'Username is required';
       isValid = false;
@@ -57,7 +55,6 @@ const Depositeform = () => {
       errors.username = '';
     }
 
-    // Amount validation
     if (!formData.enteramount) {
       errors.enteramount = 'Amount is required';
       isValid = false;
@@ -68,7 +65,6 @@ const Depositeform = () => {
       errors.enteramount = '';
     }
 
-    // Image validation
     if (!formData.image) {
       errors.image = 'Please upload a receipt';
       isValid = false;
@@ -83,7 +79,7 @@ const Depositeform = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
-      alert('Success');
+      onSubmit();
     }
   };
 
@@ -120,7 +116,7 @@ const Depositeform = () => {
                 Binance Address
               </Typography>
 
-              <CopyToClipboard text="TKrPNaynUrPUjuP2vVcauwFskf6TBHozRh" onCopy={() => alert('Address copied to clipboard!')}>
+              <CopyToClipboard text="TKrPNaynUrPUjuP2vVcauwFskf6TBHozRh" onCopy={() => onCopyToClipboard("TKrPNaynUrPUjuP2vVcauwFskf6TBHozRh")}>
                 <Stack
                   alignItems="center"
                   justifyContent="space-evenly"
@@ -143,7 +139,7 @@ const Depositeform = () => {
                 Binance Link
               </Typography>
 
-              <CopyToClipboard text="http://www.binance.com" onCopy={() => alert('Address copied to clipboard!')}>
+              <CopyToClipboard text="http://www.binance.com" onCopy={() => onCopyToClipboard("http://www.binance.com")}>
                 <Stack
                   alignItems="center"
                   justifyContent="space-evenly"
@@ -162,25 +158,23 @@ const Depositeform = () => {
                 </Stack>
               </CopyToClipboard>
 
-              {/* Upload file input */}
               <label htmlFor="image-upload">
                 <input
                   id="image-upload"
                   type="file"
-                  accept="image/jpeg, image/png" // Only allow JPG and PNG images
+                  accept="image/jpeg, image/png"
                   onChange={handleImageChange}
-                  style={{ display: 'none' }} // Hide the default file input style
+                  style={{ display: 'none' }}
                 />
-                <Button variant="contained" sx={{marginTop:'50px',marginBottom:'50px'}} component="span" color="secondary" fullWidth>
+                <Button variant="contained" sx={{ marginTop: '50px', marginBottom: '50px' }} component="span" color="secondary" fullWidth>
                   Upload Receipt
                 </Button>
               </label>
 
-              {/* Image preview */}
               {formErrors.image && (
-                <Typography variant="body2" color="error">
+                <Alert severity="error" onClose={() => setFormErrors((prevErrors) => ({ ...prevErrors, image: '' }))}>
                   {formErrors.image}
-                </Typography>
+                </Alert>
               )}
               {imagePreview && (
                 <img
