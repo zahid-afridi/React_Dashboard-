@@ -49,6 +49,7 @@ const navigation = () => {
     {
       title:'Referral Code',
       icon: LinkIcon,
+      path:'/referralcode'
     },
     {
       title:' Purchase',
