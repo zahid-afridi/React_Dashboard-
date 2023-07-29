@@ -144,7 +144,7 @@ return amountText;
    
   };
 
-  const jazzCasheLabel = formData.source ? `Enter your ${formData.source}` : 'Please Select withdrwa acount first';
+  const jazzCasheLabel = formData.source ? `Enter your ${formData.source}` : 'Please Select Source';
 
   return (
     <Grid container justifyContent="center" alignItems="center" sx={{ minHeight: { xs: '70vh' } }}>

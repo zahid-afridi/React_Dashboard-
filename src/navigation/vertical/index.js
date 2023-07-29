@@ -52,13 +52,11 @@ const navigation = () => {
       path:'/referralcode'
     },
     {
-      title:' Purchase',
-      icon: InventoryIcon,
+      title:' Wallet',
+      icon: WalletIcon,
+      path:'/wallet'
     },
-    {
-            title:'Re - Invest',
-            icon:AttachMoneyIcon,
-    },
+   
     {
       title:'All Referral',
       icon:LinkIcon,
