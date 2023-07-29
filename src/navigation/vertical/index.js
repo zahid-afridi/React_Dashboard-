@@ -57,10 +57,10 @@ const navigation = () => {
       path:'/wallet'
     },
    
-    {
-      title:'All Referral',
-      icon:LinkIcon,
-    },
+    // {
+    //   title:'All Referral',
+    //   icon:LinkIcon,
+    // },
     {
       title:'About',
       icon:InfoOutlinedIcon,
